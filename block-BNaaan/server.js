@@ -1,14 +1,11 @@
 const http = require('http');
 
-let server = http.createServer(handleRequests);
+let server = http.createServer(handleRequest);
 
-function handleRequests(req, res) {
-  console.log(req.method, req.url);
-
-  res.writeHead(201, { 'Content-Type': `text/html` });
-  res.end('<h2>Welcome</h2>');
+function handleRequest(req, res) {
+  console.log(req.method, req.url, req.headers);
 }
 
-server.listen(4444, 'localhost', () => {
-  console.log(`Server listening on 4444 port!`);
+server.listen(3000, 'localhost', () => {
+  console.log('Server created at 3000 port!');
 });
